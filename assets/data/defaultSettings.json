@@ -1,0 +1,18 @@
+{
+  "selectedDataSets": {
+    "appcache": false,
+    "cache": false,
+    "cacheStorage": false,
+    "cookies": false,
+    "downloads": true,
+    "fileSystems": false,
+    "formData": false,
+    "history": true,
+    "indexedDB": false,
+    "localStorage": false,
+    "pluginData": false,
+    "passwords": false,
+    "serviceWorkers": false,
+    "webSQL": false
+  }
+}
