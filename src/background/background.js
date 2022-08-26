@@ -5,7 +5,7 @@ const { browserAction, browsingData, notifications } = chrome;
 
 const defaultNotificationOptions = {
   type: 'basic',
-  iconUrl: '../../assets/icons/bin/128px.png',
+  iconUrl: '../../assets/icons/128px.png',
   title: 'Browser Data Cleaner',
 };
 
