@@ -1,15 +1,11 @@
 {
+  "action": {
+    "default_title": "Clear browser data"
+  },
   "author": "MetalTxus (Jesús Miguel Cruz Cana)",
   "background": {
-    "page": "src/background/background.html"
-  },
-  "browser_action": {
-    "default_title": "Clear browser data",
-    "default_icon": {
-      "16": "assets/icons/material_trash/16px.png",
-      "24": "assets/icons/material_trash/24px.png",
-      "32": "assets/icons/material_trash/32px.png"
-    }
+    "service_worker": "src/background/background.js",
+    "type": "module"
   },
   "description": "Clears browser data in a single click.",
   "icons": {
@@ -18,7 +14,7 @@
     "48": "assets/icons/material_trash/48px.png",
     "128": "assets/icons/material_trash/128px.png"
   },
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Browser Data Cleaner",
   "options_page": "src/options/options.html",
   "permissions": ["activeTab", "browsingData", "notifications", "storage"],
