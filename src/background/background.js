@@ -22,9 +22,9 @@ const initializeBackground = () => {
     }
 
     action.onClicked.addListener(() => {
-      if (!state.notificationId) {
+      // if (!state.notificationId) {
         clearHistory();
-      }
+      // }
     });
   });
 };
