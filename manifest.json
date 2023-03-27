@@ -18,5 +18,5 @@
   "name": "Browser Data Cleaner",
   "options_page": "src/options/options.html",
   "permissions": ["activeTab", "browsingData", "notifications", "storage"],
-  "version": "1.0.0"
+  "version": "1.0.2"
 }
