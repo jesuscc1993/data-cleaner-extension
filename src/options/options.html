@@ -4,20 +4,24 @@
     <link rel="stylesheet" type="text/css" href="options.css" />
   </head>
   <body>
-    <div class="contents">
-      <h3>Delete the following when clicking the icon:</h3>
+    <div class="contents card">
+      <div class="section padded page-header">
+        <img src="../../assets/icons/material_trash/24px.png" />
+        <span>Browser Data Cleaner</span>
+      </div>
+
+      <div class="section padded">
+        <div class="section-title">Delete the following items</div>
+        <div class="section-content">
+          See "<a
+            href="https://developer.chrome.com/extensions/browsingData#type-DataTypeSet"
+            target="_blank"
+            >data type sets</a
+          >".
+        </div>
+      </div>
 
       <form id="dataTypeSetsForm"></form>
-
-      <p>
-        &gt;
-        <a
-          href="https://developer.chrome.com/extensions/browsingData#type-DataTypeSet"
-          target="_blank"
-          ><i>Data type sets explanation</i></a
-        >
-        &lt;
-      </p>
     </div>
 
     <script src="../../vendor/jquery/jquery.min.js"></script>

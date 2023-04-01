@@ -1,1 +1,73 @@
-body{font-size:16px;background:#35363a;color:#fff}a{color:#5a96f6}a:visited{color:#b775f0}.contents{max-width:400px;margin:0 auto}input[type=checkbox],label[for]{cursor:pointer}label[for]{line-height:28px;padding-left:4px}/*# sourceMappingURL=options.css.map */
+/* chrome */
+html {
+  --cr-card-background-color: #292a2d;
+  --cr-elevation-2: #0000004d 0 1px 2px 0, #00000026 0 2px 6px 2px;
+  --cr-toolbar-field-width: 680px;
+  --cr-separator-line: 1px solid #ffffff1a;
+}
+
+body {
+  background: #202124;
+  color: #fff;
+  margin: 0;
+}
+
+.card {
+  background-color: var(--cr-card-background-color);
+  box-shadow: var(--cr-elevation-2);
+}
+.card .section {
+  font-size: 13px;
+  line-height: 20px;
+  padding: 0 20px;
+}
+.card .section.padded {
+  padding: 20px;
+}
+.card .section.hr {
+  border-top: var(--cr-separator-line);
+}
+.card .section .section-title {
+  font-size: 12px;
+}
+.card .section .section-content {
+  color: #9aa0a6;
+}
+
+.page-header {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.page-header img {
+  margin-right: 12px;
+}
+
+/* extension */
+
+a,
+a:visited {
+  color: #8ab4f8;
+}
+
+.contents {
+  box-sizing: border-box;
+  margin: 0 auto;
+  min-height: 100vh;
+  width: var(--cr-toolbar-field-width);
+}
+
+.form-group {
+  display: flex;
+}
+
+input[type='checkbox'],
+label[for] {
+  cursor: pointer;
+}
+
+label[for] {
+  flex: 1;
+  line-height: 44px;
+  padding-left: 4px;
+}

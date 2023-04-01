@@ -1,19 +1,19 @@
 import { loadSettings, storeSettings } from '../storage/settings.storage.js';
 
 const clearableItems = [
-  'appcache',
-  'cache',
-  'cacheStorage',
-  'cookies',
-  'downloads',
-  'fileSystems',
-  'formData',
-  'history',
-  'indexedDB',
-  'localStorage',
-  'passwords',
-  'serviceWorkers',
-  'webSQL',
+  { label: 'App cache', value: 'appcache' },
+  { label: 'Cache', value: 'cache' },
+  { label: 'Cache storage', value: 'cacheStorage' },
+  { label: 'Cookies', value: 'cookies' },
+  { label: 'Downloads', value: 'downloads' },
+  { label: 'File systems', value: 'fileSystems' },
+  { label: 'Form data', value: 'formData' },
+  { label: 'History', value: 'history' },
+  { label: 'IndexedDB', value: 'indexedDB' },
+  { label: 'Local storage', value: 'localStorage' },
+  { label: 'Passwords', value: 'passwords' },
+  { label: 'Service workers', value: 'serviceWorkers' },
+  { label: 'WebSQL', value: 'webSQL' },
 ];
 
 const dataTypeSetsForm = jQuery('#dataTypeSetsForm');
@@ -26,16 +26,18 @@ const initialize = () => {
 
     clearableItems.forEach((item) => {
       const checkbox = jQuery(
-        `<input id="${item}" name="${item}" type="checkbox" />`
+        `<input id="${item.value}" name="${item.value}" type="checkbox" />`
       );
       checkbox.change(submitSettings);
-      if (settings && settings.selectedDataSets[item]) {
+      if (settings && settings.selectedDataSets[item.value]) {
         checkbox.attr('checked', 'checked');
       }
 
-      const formgroup = jQuery(`<div class="form-group"></div>`);
+      const formgroup = jQuery(
+        `<div class="section small hr form-group"></div>`
+      );
+      formgroup.append(`<label for="${item.value}">${item.label}</label>`);
       formgroup.append(checkbox);
-      formgroup.append(`<label for="${item}">${item}</label>`);
 
       dataTypeSetsForm.append(formgroup);
     });
