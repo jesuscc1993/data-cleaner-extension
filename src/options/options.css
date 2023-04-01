@@ -54,7 +54,7 @@ a:visited {
   box-sizing: border-box;
   margin: 0 auto;
   min-height: 100vh;
-  width: var(--cr-toolbar-field-width);
+  max-width: var(--cr-toolbar-field-width);
 }
 
 .form-group {
