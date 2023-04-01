@@ -1,7 +1,7 @@
 import { fetchJson } from '../shared/file.utils.js';
 import { loadSettings, storeSettings } from '../storage/settings.storage.js';
 
-const { action, browsingData, notifications } = chrome;
+const { browserAction, browsingData, notifications } = chrome;
 
 const defaultNotificationOptions = {
   type: 'basic',
@@ -21,10 +21,10 @@ const initializeBackground = () => {
       );
     }
 
-    action.onClicked.addListener(() => {
-      // if (!state.notificationId) {
+    browserAction.onClicked.addListener((tab) => {
+      if (!state.notificationId) {
         clearHistory();
-      // }
+      }
     });
   });
 };
