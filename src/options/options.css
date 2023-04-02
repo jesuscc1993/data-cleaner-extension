@@ -12,17 +12,22 @@ body {
   margin: 0;
 }
 
+a,
+a:visited {
+  color: #8ab4f8;
+}
+
 .card {
   background-color: var(--cr-card-background-color);
   box-shadow: var(--cr-elevation-2);
+}
+.card.bordered {
+  border-radius: 8px;
 }
 .card .section {
   font-size: 13px;
   line-height: 20px;
   padding: 0 20px;
-}
-.card .section.padded {
-  padding: 20px;
 }
 .card .section.hr {
   border-top: var(--cr-separator-line);
@@ -45,16 +50,27 @@ body {
 
 /* extension */
 
-a,
-a:visited {
-  color: #8ab4f8;
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .contents {
   box-sizing: border-box;
+  flex: 1;
   margin: 0 auto;
-  min-height: 100vh;
   max-width: var(--cr-toolbar-field-width);
+  padding-bottom: 64px;
+}
+
+.page-header {
+  padding: 20px 0;
+}
+
+.card .padded {
+  padding: 12px 20px;
 }
 
 .form-group {
@@ -69,5 +85,4 @@ label[for] {
 label[for] {
   flex: 1;
   line-height: 44px;
-  padding-left: 4px;
 }
