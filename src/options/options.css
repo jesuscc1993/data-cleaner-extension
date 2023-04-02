@@ -20,6 +20,7 @@ a:visited {
 .card {
   background-color: var(--cr-card-background-color);
   box-shadow: var(--cr-elevation-2);
+  font-size: 13px;
 }
 .card.bordered {
   border-radius: 8px;
@@ -31,9 +32,6 @@ a:visited {
 }
 .card .section.hr {
   border-top: var(--cr-separator-line);
-}
-.card .section .section-title {
-  font-size: 12px;
 }
 .card .section .section-content {
   color: #9aa0a6;
