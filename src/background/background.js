@@ -1,5 +1,6 @@
 import { fetchJson } from '../shared/file.utils.js';
 import { loadSettings, storeSettings } from '../storage/settings.storage.js';
+import { stringify } from '../shared/generic.utils.js';
 
 const { browserAction, browsingData, notifications } = chrome;
 
@@ -21,7 +22,7 @@ const initializeBackground = () => {
       );
     }
 
-    browserAction.onClicked.addListener((tab) => {
+    browserAction.onClicked.addListener(() => {
       if (!state.notificationId) {
         clearHistory();
       }
@@ -40,6 +41,7 @@ const showNotification = (notificationOptions) => {
     ...notificationOptions,
   });
 };
+
 const updateNotification = (notificationOptions) => {
   notifications.update(state.notificationId, {
     ...defaultNotificationOptions,
@@ -48,15 +50,17 @@ const updateNotification = (notificationOptions) => {
 };
 
 const clearHistory = () => {
-  showNotification({ message: 'Clearing data...' });
+  loadSettings().then(({ selectedDataSets, notificationsEnabled }) => {
+    if (notificationsEnabled) {
+      showNotification({ message: 'Clearing data...' });
+    }
 
-  loadSettings().then(({ selectedDataSets }) => {
     browsingData.remove({}, selectedDataSets, () => {
-      console.log(
-        `Cleared data sets ${JSON.stringify(selectedDataSets, undefined, 2)}`
-      );
+      console.debug(`Cleared data sets ${stringify(selectedDataSets)}`);
 
-      updateNotification({ message: 'Data successfully cleared.' });
+      if (notificationsEnabled) {
+        updateNotification({ message: 'Data successfully cleared.' });
+      }
       state.notificationId = undefined;
     });
   });

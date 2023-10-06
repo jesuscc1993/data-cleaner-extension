@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="chrome.css" />
     <link rel="stylesheet" type="text/css" href="options.css" />
   </head>
   <body>
+    <div class="toolbar">
+      <img src="../../assets/icons/material_trash/24px.png" />
+      <span>Browser Data Cleaner</span>
+    </div>
+
     <div class="contents">
-      <div class="page-header">
-        <img src="../../assets/icons/material_trash/24px.png" />
-        <span>Browser Data Cleaner</span>
+      <div class="section-header">
+        <span>Data types</span>
       </div>
 
       <div class="card bordered">
@@ -24,6 +29,22 @@
 
         <form id="dataTypeSetsForm"></form>
       </div>
+
+      <div class="section-header">
+        <span>Notifications</span>
+      </div>
+
+      <div class="card bordered">
+        <div class="section small form-group">
+          <label for="notificationsEnabled"
+            >Show data cleaned notification</label
+          >
+          <input
+            id="notificationsEnabled"
+            name="notificationsEnabled"
+            type="checkbox"
+          />
+        </div>
       </div>
     </div>
 

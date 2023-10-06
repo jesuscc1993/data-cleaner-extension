@@ -1,0 +1,25 @@
+body {
+  min-height: 100vh;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
+}
+
+label[for] {
+  cursor: pointer;
+  flex: 1;
+  line-height: 44px;
+}
+
+.contents {
+  box-sizing: border-box;
+  flex: 1;
+  margin: 0 auto;
+  max-width: var(--cr-toolbar-field-width);
+  padding-bottom: 64px;
+}
+
+.form-group {
+  display: flex;
+}

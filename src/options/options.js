@@ -17,6 +17,7 @@ const clearableItems = [
 ];
 
 const dataTypeSetsForm = jQuery('#dataTypeSetsForm');
+const notificationsEnabled = jQuery('#notificationsEnabled');
 
 let settings;
 
@@ -33,14 +34,20 @@ const initialize = () => {
         checkbox.attr('checked', 'checked');
       }
 
-      const formgroup = jQuery(
+      const formGroup = jQuery(
         `<div class="section small hr form-group"></div>`
       );
-      formgroup.append(`<label for="${item.value}">${item.label}</label>`);
-      formgroup.append(checkbox);
+      formGroup.append(`<label for="${item.value}">${item.label}</label>`);
+      formGroup.append(checkbox);
 
-      dataTypeSetsForm.append(formgroup);
+      dataTypeSetsForm.append(formGroup);
     });
+
+    notificationsEnabled.attr(
+      'checked',
+      settings.notificationsEnabled ? 'checked' : undefined
+    );
+    notificationsEnabled.change(submitSettings);
   });
 };
 
@@ -50,8 +57,16 @@ const getFormDataTypeSets = () => {
     .reduce((formData, field) => ({ ...formData, [field.name]: true }), {});
 };
 
+const isChecked = (input) => {
+  return input.is(':checked');
+};
+
 const submitSettings = () => {
-  storeSettings({ ...settings, selectedDataSets: getFormDataTypeSets() });
+  storeSettings({
+    ...settings,
+    selectedDataSets: getFormDataTypeSets(),
+    notificationsEnabled: isChecked(notificationsEnabled),
+  });
 };
 
 initialize();
