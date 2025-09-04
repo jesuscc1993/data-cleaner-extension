@@ -9,7 +9,7 @@
   },
   "description": "Clears browser data in a single click.",
   "icons": {
-    "16": "assets/icons/material_trash/16px.png",
+    "16": "assets/icons/chrome/16px.png",
     "32": "assets/icons/material_trash/32px.png",
     "48": "assets/icons/material_trash/48px.png",
     "128": "assets/icons/material_trash/128px.png"
