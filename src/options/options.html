@@ -1,30 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <title>Data Cleaner Options</title>
     <link rel="stylesheet" type="text/css" href="options.css" />
+    <meta name="color-scheme" content="dark" />
   </head>
   <body>
-    <div class="contents card">
-      <div class="section padded page-header">
-        <img src="../../assets/icons/material_trash/24px.png" />
-        <span>Browser Data Cleaner</span>
-      </div>
-
-      <div class="section padded">
-        <div class="section-title">Delete the following items</div>
-        <div class="section-content">
-          See "<a
-            href="https://developer.chrome.com/extensions/browsingData#type-DataTypeSet"
-            target="_blank"
-            >data type sets</a
-          >".
+    <div class="contents">
+      <div class="card">
+        <div class="section padded page-header">
+          <img
+            alt="trash_icon"
+            src="../../assets/icons/material_trash/24px.png"
+          />
+          <span>Browser Data Cleaner</span>
         </div>
-      </div>
 
-      <form id="dataTypeSetsForm"></form>
+        <div class="section padded hr">
+          <div class="section-title">Delete the following items</div>
+          <div class="section-content">
+            See "<a
+              href="https://developer.chrome.com/extensions/browsingData#type-DataTypeSet"
+              target="_blank"
+              >data type sets</a
+            >".
+          </div>
+        </div>
+
+        <form id="dataTypeSetsForm"></form>
+      </div>
     </div>
 
-    <script src="../../vendor/jquery/jquery.min.js"></script>
     <script type="module" src="options.js"></script>
   </body>
 </html>

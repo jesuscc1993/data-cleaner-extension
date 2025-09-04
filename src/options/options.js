@@ -16,7 +16,7 @@ const clearableItems = [
   { label: 'WebSQL', value: 'webSQL' },
 ];
 
-const dataTypeSetsForm = jQuery('#dataTypeSetsForm');
+const dataTypeSetsForm = document.querySelector('#dataTypeSetsForm');
 
 let settings;
 
@@ -25,29 +25,34 @@ const initialize = () => {
     settings = storageSettings;
 
     clearableItems.forEach((item) => {
-      const checkbox = jQuery(
-        `<input id="${item.value}" name="${item.value}" type="checkbox" />`
-      );
-      checkbox.change(submitSettings);
+      const label = document.createElement('label');
+      label.htmlFor = item.value;
+      label.textContent = item.label;
+
+      const checkbox = document.createElement('input');
+      checkbox.id = item.value;
+      checkbox.name = item.value;
+      checkbox.type = 'checkbox';
+      checkbox.addEventListener('change', submitSettings);
       if (settings && settings.selectedDataSets[item.value]) {
-        checkbox.attr('checked', 'checked');
+        checkbox.checked = true;
       }
 
-      const formgroup = jQuery(
-        `<div class="section small hr form-group"></div>`
-      );
-      formgroup.append(`<label for="${item.value}">${item.label}</label>`);
-      formgroup.append(checkbox);
+      const formGroup = document.createElement('div');
+      formGroup.className = 'section small hr form-group';
+      formGroup.append(label);
+      formGroup.append(checkbox);
 
-      dataTypeSetsForm.append(formgroup);
+      dataTypeSetsForm.append(formGroup);
     });
   });
 };
 
 const getFormDataTypeSets = () => {
-  return dataTypeSetsForm
-    .serializeArray()
-    .reduce((formData, field) => ({ ...formData, [field.name]: true }), {});
+  return Array.from(new FormData(dataTypeSetsForm)).reduce(
+    (formData, [name]) => ((formData[name] = true), formData),
+    {}
+  );
 };
 
 const submitSettings = () => {

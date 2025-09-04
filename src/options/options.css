@@ -1,19 +1,22 @@
 /* chrome */
 html {
   --cr-card-background-color: #292a2d;
+  --cr-card-border-radius: 8px;
   --cr-elevation-2: #0000004d 0 1px 2px 0, #00000026 0 2px 6px 2px;
-  --cr-toolbar-field-width: 680px;
+  --cr-primary-text-color: #e3e3e3;
   --cr-separator-line: 1px solid #ffffff1a;
+  --cr-toolbar-field-width: 680px;
 }
 
 body {
   background: #202124;
-  color: #fff;
+  color: var(--cr-primary-text-color);
   margin: 0;
 }
 
 .card {
   background-color: var(--cr-card-background-color);
+  border-radius: var(--cr-card-border-radius);
   box-shadow: var(--cr-elevation-2);
 }
 .card .section {
@@ -35,7 +38,6 @@ body {
 }
 
 .page-header {
-  font-size: 14px;
   display: flex;
   align-items: center;
 }
@@ -52,8 +54,7 @@ a:visited {
 
 .contents {
   box-sizing: border-box;
-  margin: 0 auto;
-  min-height: 100vh;
+  margin: 2.5em auto;
   width: var(--cr-toolbar-field-width);
 }
 

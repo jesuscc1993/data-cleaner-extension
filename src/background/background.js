@@ -12,20 +12,14 @@ const defaultNotificationOptions = {
 const state = {};
 
 const initializeBackground = () => {
+  action.onClicked.addListener(() => clearHistory());
+
   loadSettings().then((storageSettings) => {
     if (!storageSettings) {
       fetchJson('../../assets/data/defaultSettings.json').then(
-        (defaultSettings) => {
-          storeSettings(defaultSettings);
-        }
+        (defaultSettings) => storeSettings(defaultSettings)
       );
     }
-
-    action.onClicked.addListener(() => {
-      // if (!state.notificationId) {
-        clearHistory();
-      // }
-    });
   });
 };
 
